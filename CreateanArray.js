@@ -9,12 +9,19 @@ class Array {
     push(data){
         this.array[this.length] = data
         this.length++
-        return this.data
+        return this.array
+    }
+    pop(){
+        let lastItem = this.array[this.length-1]
+        delete this.array[this.length-1]
+        this.length--
+        return this.array
     }
 }
 
 let myArray = new Array()
  myArray.push('apple')
  myArray.push('grapes')
-
+ myArray.push('lemon')
+ myArray.pop()
  console.log(myArray)
