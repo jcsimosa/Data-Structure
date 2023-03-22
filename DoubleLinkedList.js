@@ -32,7 +32,42 @@ class DoubleLinkedList {
         this.length++
         return this 
     }
-    
+    printList(){
+        let arr = []
+        let currentNode = this.head
+        while (currentNode !== null){
+            arr.push(currentNode.value)
+            currentNode = currentNode.next
+        }
+        return arr
+    }
+    insert(index, value){
+        if (index > this.length){
+            this.append(value)
+        }
+        let newNode = {
+            value : value,
+            next : null,
+            prev : null,
+        }
+        let firstNode = this.traversingAtIndex(index-1)
+        let afterNode = firstNode.next
+        newNode.prev = firstNode
+        newNode.next = afterNode
+        firstNode.next = newNode
+        afterNode.prev = newNode
+        this.length++
+        return this
+    }
+    traversingAtIndex(index){
+        let traverse = 0
+        let currentNode = this.head
+        while (traverse <= index){
+            currentNode = currentNode.next
+            traverse++
+        }
+        return currentNode
+    }
 }
 
 let myDoubleLinkedList = new DoubleLinkedList(10)
@@ -40,5 +75,5 @@ myDoubleLinkedList.append(20)
 myDoubleLinkedList.append(30)
 myDoubleLinkedList.preppend(5)
 myDoubleLinkedList.preppend(1)
-
-console.log(myDoubleLinkedList)
+console.log(myDoubleLinkedList.insert(3 ,25))
+console.log(myDoubleLinkedList.printList())
