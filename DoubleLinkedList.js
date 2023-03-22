@@ -68,6 +68,15 @@ class DoubleLinkedList {
         }
         return currentNode
     }
+    remove(index){
+        let firstNode = this.traversingAtIndex(index-1)
+        let unwantedNode = firstNode.next
+        let afterNode = unwantedNode.next
+        firstNode.next = afterNode
+        afterNode.prev = firstNode
+        this.length--
+        return this
+    }
 }
 
 let myDoubleLinkedList = new DoubleLinkedList(10)
@@ -76,4 +85,7 @@ myDoubleLinkedList.append(30)
 myDoubleLinkedList.preppend(5)
 myDoubleLinkedList.preppend(1)
 console.log(myDoubleLinkedList.insert(3 ,25))
+console.log(myDoubleLinkedList.insert(3 ,29))
+console.log(myDoubleLinkedList.remove(3))
+
 console.log(myDoubleLinkedList.printList())
