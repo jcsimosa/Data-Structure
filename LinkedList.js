@@ -27,6 +27,26 @@ class LinkedList {
         this.length++
         return this
     }
+    insert(data , index){
+        if(index >= this.length){
+            return this.append(data)
+        }
+        let newNode = {
+            data : data,
+            next : null
+        }
+
+    }
+    printList(){
+        let arr = []
+        let currentNode = this.head
+        
+        while (currentNode !== null){
+            arr.push(currentNode.data)
+            currentNode = currentNode.next
+        }
+        return arr
+    }
 }
 
 let myLinkedList = new LinkedList(10)
@@ -36,4 +56,4 @@ myLinkedList.append(25)
 myLinkedList.preppend(1)
 
 
-console.log(myLinkedList)
+console.log(myLinkedList.printList())
