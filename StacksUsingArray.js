@@ -5,6 +5,10 @@ class Stack {
     peek(){
         return this.array[this.array.length-1]
     }
+    push(value){
+        return this.array.push(value)
+    }
+    
 }
 let myStack = new Stack()
 myStack.push('google')
