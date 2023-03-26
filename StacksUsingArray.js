@@ -8,7 +8,9 @@ class Stack {
     push(value){
         return this.array.push(value)
     }
-    
+    pop(){
+        return this.array.pop()
+    }
 }
 let myStack = new Stack()
 myStack.push('google')
