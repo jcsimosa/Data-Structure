@@ -4,7 +4,6 @@ function hasDuplicate(array) {
     for (let j = i + 1 ; j <= array.length; j++){
         numSteps++
         if (array[i] === array[j]){
-            console.log(array[i] , array[j])
             return true  
         } 
     }
