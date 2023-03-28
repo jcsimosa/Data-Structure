@@ -27,8 +27,27 @@ class Queue{
         this.length++
         return this
     }
+    dequeue(){
+        if (!this.first){
+            return null
+        }
+        if (this.first === this.last){
+            this.last = null
+        }
+        let holdingPointer = this.first
+        this.first = holdingPointer.next
+        this.length--
+        return this
+    }
 }
 let myQueue = new Queue()
 myQueue.enqueue(10)
 myQueue.enqueue(20)
-console.log(myQueue.enqueue(30))
+myQueue.enqueue(30)
+myQueue.enqueue(40)
+myQueue.enqueue(50)
+myQueue.dequeue()
+
+
+
+console.log(myQueue.peek())
