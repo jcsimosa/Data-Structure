@@ -17,6 +17,6 @@ myStack.push('google')
 myStack.push('udemy')
 myStack.push('facebook')
 myStack.push('discord')
-
+myStack.pop()
 
 console.log(myStack)
