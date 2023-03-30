@@ -1,4 +1,3 @@
-let array = [4,2,7,1,3]
 
 function insertionSort(array){
     for (let i = 1; i < array.length; i++){
@@ -18,4 +17,4 @@ function insertionSort(array){
     }
     return array
 }
-console.log(insertionSort(array))
+console.log(insert(array))
