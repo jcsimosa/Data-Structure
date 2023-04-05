@@ -46,12 +46,52 @@ class BinarySearchTree {
         }
         return null
     }
+    remove(value){
+        if (!this.root){
+            return false
+        }
+        let currentNode = this.root
+        let parentNode = null
+        while (currentNode){
+            if (value > currentNode.value){
+                parentNode = currentNode
+                currentNode = currentNode.right
+            } else if (value < currentNode.value){
+                parentNode = currentNode
+                currentNode = currentNode.left
+            } else if (value === currentNode.value){
+
+               if (currentNode.right === null){
+                   if (parentNode === null){
+                       this.root = currentNode.left
+                   }
+                   else {
+                       if (parentNode.value > currentNode.value){
+                           parentNode.left = currentNode.left
+                       }
+                       else if (parentNode.value < currentNode.value){
+                           parentNode.right = currentNode.left
+                       }
+                   }
+               }
+               else if (currentNode.left === null){
+                if 
+               } 
+
+            }
+        }
+    }
 }
 
 let myTree = new BinarySearchTree()
-myTree.insert(10)
+myTree.insert(15)
+myTree.insert(23)
+myTree.insert(6)
+myTree.insert(4)
+myTree.insert(71)
+myTree.insert(50)
 myTree.insert(5)
-myTree.insert(30)
+myTree.insert(7)
 
 
-console.log(myTree.lookup(10))
+console.log(myTree.remove(6))
