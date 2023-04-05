@@ -33,11 +33,25 @@ class BinarySearchTree {
             }
         }
     }
+    lookup(value){
+        let currentNode = this.root
+        while (currentNode){
+            if (currentNode.value > value){
+                currentNode = currentNode.left
+            } else if (currentNode.value < value){
+                currentNode = currentNode.right
+            } else if (currentNode.value === value) {
+                return currentNode
+            }
         }
+        return null
+    }
+}
 
 let myTree = new BinarySearchTree()
 myTree.insert(10)
 myTree.insert(5)
 myTree.insert(30)
 
-console.log(myTree)
+
+console.log(myTree.lookup(10))
