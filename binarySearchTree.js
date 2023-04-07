@@ -100,7 +100,20 @@ class BinarySearchTree {
                 leftMostParent.left = leftMost.right
                 leftMost.left = currentNode.left
                 leftMost.right = leftMost.right
+
+                if (parentNode === null)[
+                    this.root = leftMost
+                ]
+                else {
+                    if (currentNode.value > parentNode.value){
+                        parentNode.right = leftMost
+                    } 
+                    else if (parentNode.value > currentNode.value){
+                        parentNode.left = leftMost
+                    }
+                }
             }
+            return true
             }
         }
     }
@@ -117,4 +130,4 @@ myTree.insert(5)
 myTree.insert(7)
 
 
-console.log(myTree.remove(6))
+console.log(myTree.remove(23))
