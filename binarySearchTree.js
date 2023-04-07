@@ -60,8 +60,9 @@ class BinarySearchTree {
                 parentNode = currentNode
                 currentNode = currentNode.left
             } else if (value === currentNode.value){
-
+                //first case
                if (currentNode.right === null){
+
                    if (parentNode === null){
                        this.root = currentNode.left
                    }
@@ -74,10 +75,32 @@ class BinarySearchTree {
                        }
                    }
                }
-               else if (currentNode.left === null){
-                if 
+               //second case
+               else if (currentNode.right.left === null){
+                    currentNode.right.left = currentNode.left
+                    if (parentNode === null){
+                        this.root = currentNode.right
+                    } 
+                    else {
+                        if (currentNode.value > parentNode.value){
+                            parentNode.right = currentNode.right
+                        }
+                        else if (currentNode.value < parentNode.value){
+                            parentNode.left = currentNode.right
+                        }
+                    }
                } 
-
+            else {
+                let leftMost = currentNode.right.left
+                let leftMostParent = currentNode.right
+                while (leftMost.left !== null){
+                    leftMost = leftMost.left
+                    leftMostParent = leftMost
+                }
+                leftMostParent.left = leftMost.right
+                leftMost.left = currentNode.left
+                leftMost.right = leftMost.right
+            }
             }
         }
     }
