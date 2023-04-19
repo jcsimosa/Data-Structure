@@ -101,9 +101,9 @@ class BinarySearchTree {
                 leftMost.left = currentNode.left
                 leftMost.right = leftMost.right
 
-                if (parentNode === null)[
+                if (parentNode === null){
                     this.root = leftMost
-                ]
+                }
                 else {
                     if (currentNode.value > parentNode.value){
                         parentNode.right = leftMost
