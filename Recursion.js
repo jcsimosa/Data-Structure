@@ -17,3 +17,5 @@ function findFactorialRecursive(number) {
   }
   console.log(findFactorialIterative(5))
   console.log(findFactorialRecursive(5))
+
+  
