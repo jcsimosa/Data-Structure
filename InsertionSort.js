@@ -1,3 +1,4 @@
+let array = [99,44,6,2,1,5,63,87,283,4,0]
 
 function insertionSort(array){
     for (let i = 1; i < array.length; i++){
@@ -18,3 +19,23 @@ function insertionSort(array){
     return array
 }
 console.log(insert(array))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
