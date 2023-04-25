@@ -1,14 +1,14 @@
-let array = [5,2,87,4,24,31,59]
+let array = [99,44,6,2,1,5,63,87,283,4,0]
 
 function bubbleSort(array){
     for (let i = 0; i < array.length; i++){
 
         for (let j = i + 1; j < array.length; j++){
-            let tvalue = 0
             if (array[i] > array[j]){
+                let temp = array[j]
                 tvalue = array[j]
                 array[j] = array[i]
-                array[i] = tvalue
+                array[i] = temp
             }
         }
     }
