@@ -1,24 +1,46 @@
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
-function quickSort(items){
+// function quickSort(items){
     
-    let length = items.length
-    if (length <= 1){
-        return items
+//     let length = items.length
+//     if (length <= 1){
+//         return items
+//     }
+
+//     let pivot = items[0]
+//     let greater = []
+//     let lesser = []
+
+//     for (let i = 1; i < length;i++){
+//         if (items[i] > pivot){
+//             greater.push(items[i])
+//         } else {
+//             lesser.push(items[i])
+//         }
+//     }
+//     const sorted = [...quickSort(lesser),pivot,...quickSort(greater)]
+//     return sorted
+// }
+function quickSort(arr){
+    
+    
+    if (arr.length <= 1){
+        return arr
     }
+    let length = arr.length 
 
-    let pivot = items[0]
-    let greater = []
     let lesser = []
+    let greater = []
+    let pivot = arr[0]
 
-    for (let i = 1; i < length;i++){
-        if (items[i] > pivot){
-            greater.push(items[i])
+    for (let i = 1; i < length; i++){
+        if (pivot > arr[i]){
+            lesser.push(arr[i])
         } else {
-            lesser.push(items[i])
+            greater.push(arr[i])
         }
     }
-    const sorted = [...quickSort(lesser),pivot,...quickSort(greater)]
+    let sorted = [...quickSort(lesser),pivot,...quickSort(greater)]
     return sorted
 }
     
@@ -63,7 +85,7 @@ function quickSort2(array, left, right){
   }
   
   //Select first and last index as 2nd and 3rd parameters
-  quickSort2(numbers, 0, numbers.length - 1);
-  console.log(numbers);
+//   quickSort2(numbers, 0, numbers.length - 1);
+//   console.log(numbers);
 
 
