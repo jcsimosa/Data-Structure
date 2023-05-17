@@ -21,9 +21,29 @@ function maxHeap(arr, heapSize, i){
     if (largest !== i){
         let temp = arr[i]
         arr[i] = arr[largest]
-        arr[largest] = arr[i]
+        arr[largest] = temp
     // and now we call the heap method on our array
         maxHeap(arr, heapSize,largest)
     }
 }
 //now we create our sorting algorith
+function heapSort(arr){
+    
+    let len = arr.length
+    
+    //we call our max heap to create our heap 
+    for (let i = Math.floor(len / 2) - 1; i >= 0; i--){
+        maxHeap(arr, len, i)
+    }
+    //we swap the max value(parent node) for our last value(child node) 
+    for (let i = len - 1; i >= 0; i--){
+        let temp = arr[0]
+        arr[0] = arr[i]
+        arr[i] = temp
+        
+        //we call our maxHeap method with our new arrange array
+        maxHeap(arr,i,0)
+    }
+    return arr
+}
+console.log(heapSort(arr))
