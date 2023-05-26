@@ -45,7 +45,7 @@ function quickSort(arr){
 }
     
 //Select first and last index as 2nd and 3rd parameters
-console.log(quickSort(numbers))
+// console.log(quickSort(numbers))
 
 
 function quickSort2(array, left, right){
@@ -88,4 +88,23 @@ function quickSort2(array, left, right){
 //   quickSort2(numbers, 0, numbers.length - 1);
 //   console.log(numbers);
 
+function quickSort3(arr){
+    let len = arr.length
+    let pivot = arr[0]
+    let greater = []
+    let lesser = []
 
+    for(let i = 1; i < len; i++){
+        if (arr[i] < pivot){
+            lesser.push(arr[i])
+        }
+        else {
+            greater.push(arr[i])
+        }
+    }
+    let sorted = [...quickSort(lesser), pivot, ...quickSort(greater)]
+
+    return sorted 
+}
+
+console.log(quickSort3(numbers))

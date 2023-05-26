@@ -46,4 +46,44 @@ function heapSort(arr){
     }
     return arr
 }
-console.log(heapSort(arr))
+
+function maxHeap2(arr, heapSize, i){
+    
+    let leftChild = 2 * i + 1
+    let rightChild = 2 * i + 2
+    let largest = i
+
+    if (leftChild < heapSize && arr[leftChild] > arr[largest]){
+        largest = leftChild
+    }
+    if (rightChild < heapSize && arr[rightChild] > arr[largest]){
+        largest = rightChild
+    }
+    if (largest !== i){
+        let temp = arr[i]
+        arr[i] = arr[largest]
+        arr[largest] = temp
+
+        maxHeap2(arr, heapSize,largest)
+    }
+}
+function heapSort2(arr){
+    let len = arr.length
+    if ( len === 1){
+        return arr
+    }
+    for (let i = Math.floor(len / 2) - 1; i > -1; i--){
+        maxHeap2(arr,len,i)
+    }
+    for (let i = len - 1; i > -1; i--){
+        let swap = arr[0]
+        arr[0] = arr[i]
+        arr[i] = swap
+
+        maxHeap2(arr,i,0)
+    }
+    return arr
+}
+
+
+console.log(heapSort2(arr))
