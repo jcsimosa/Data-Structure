@@ -14,7 +14,6 @@ return false
 function hasDuplicate2(array){
     let arr = []
     for (let i = 0; i < array.length; i++){
-        console.log(i)
         if (arr[array[i]] === 1){
             return arr
         } else {

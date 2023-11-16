@@ -11,6 +11,7 @@ const getNum = (num, index) => {
     else return foundNum;
   };
   
+
   const largestNum = arr => {
     let largest = "0";
   
@@ -22,6 +23,8 @@ const getNum = (num, index) => {
   
     return largest.length;
   };
+
+  
   const radixSort = arr => {
     let maxLength = largestNum(arr);
   

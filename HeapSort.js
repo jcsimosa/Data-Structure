@@ -85,5 +85,60 @@ function heapSort2(arr){
     return arr
 }
 
+function maxHeap3(arr, heapSize, i){
 
-console.log(heapSort2(arr))
+    let largestSoFar = i
+    let leftS = 2 * i + 1
+    let rightS = 2 * i + 2
+
+    if (leftS < heapSize && arr[leftS] > arr[largestSoFar]){
+        largestSoFar = leftS
+    } 
+    if (rightS < heapSize && arr[rightS] > arr[largestSoFar]){
+        largestSoFar = rightS
+    }
+    if (largestSoFar !== i){
+        let temp = arr[i]
+        arr[i] = arr[largestSoFar]
+        arr[largestSoFar] = temp
+
+        maxHeap3(arr, heapSize, largestSoFar)
+    }
+}
+
+function heapSort3(arr){
+
+    let len = arr.length
+
+    for (let i = Math.floor(len / 2) - 1; i >= 0; i--){
+        maxHeap3(arr, len , i)
+    }
+    
+    for (let i = len - 1; i >= 0; i--){
+        let temp = arr[0]
+        arr[0] = arr[i]
+        arr[i] = temp
+
+        maxHeap3(arr, i , 0)
+    }
+    return arr
+}
+
+
+// console.log(heapSort3(arr))
+
+let nums = [3,3]
+let target = 6
+
+var twoSum = function(nums, target) {
+    let disct = {};
+   debugger
+   for (let i = 0; i < nums.length; i++) {
+       let rest = target - nums[i];
+       if (disct[rest]) {
+           return [disct[rest], i];
+       }
+       disct[nums[i]] = i;
+
+   }
+};

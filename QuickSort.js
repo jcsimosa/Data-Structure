@@ -1,4 +1,7 @@
-const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+// const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+
+let numbers = [45,2,56,2,5,78,234,8,6,685,345,83,73,4,63,1,4,2]
+
 
 // function quickSort(items){
     
@@ -89,22 +92,24 @@ function quickSort2(array, left, right){
 //   console.log(numbers);
 
 function quickSort3(arr){
+    if (arr.length <= 1){
+        return arr
+    }
     let len = arr.length
+    let smaller = []
+    let bigger = []
     let pivot = arr[0]
-    let greater = []
-    let lesser = []
-
-    for(let i = 1; i < len; i++){
-        if (arr[i] < pivot){
-            lesser.push(arr[i])
+    
+    for (let i = 1; i < len; i++){
+        if (arr[i] > pivot){
+            bigger.push(arr[i])
         }
         else {
-            greater.push(arr[i])
+            smaller.push(arr[i])
         }
     }
-    let sorted = [...quickSort(lesser), pivot, ...quickSort(greater)]
-
-    return sorted 
+    let result = [...quickSort3(smaller), pivot , ...quickSort3(bigger)]
+    return result
 }
 
-console.log(quickSort3(numbers))
+
